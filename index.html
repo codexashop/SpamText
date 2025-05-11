@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpamTeks Tele</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      animation: fadeInBackground 3s ease-in-out;
+    }
+
+    @keyframes fadeInBackground {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      background: #222;
+      border: 2px solid #4e92c0;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 16px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00d2ff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #00d2ff;
+      border: none;
+      color: #000;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background: #00b0e6;
+      transform: scale(1.05);
+    }
+
+    .status {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .log-container {
+      max-height: 250px;
+      overflow-y: auto;
+      margin-top: 30px;
+      background: #333;
+      padding: 12px;
+      border-radius: 10px;
+      color: #00d2ff;
+      font-size: 14px;
+    }
+
+    .log-entry {
+      margin-bottom: 10px;
+      padding: 5px 0;
+      border-bottom: 1px solid #00d2ff;
+    }
+
+    .log-entry:last-child {
+      border-bottom: none;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .nav button {
+      padding: 10px 25px;
+      background: #00d2ff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .nav button:hover {
+      background: #00b0e6;
+    }
+
+    .dev-btns {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .dev-btns a {
+      background: #00d2ff;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dev-btns a:hover {
+      background: #00b0e6;
+      transform: scale(1.05);
+    }
+
+    .fab {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>𝙎𝙥𝙖𝙢𝙏𝙚𝙭𝙩 𝙏𝙚𝙡𝙚 𝘽𝙮 𝘿𝙤𝙣𝙭𝙏𝙯</h2>
+
+  <div class="nav">
+    <button onclick="showPage('pesan')">𝗠𝗲𝘀𝘀𝗮𝗴𝗲𝘀</button>
+    <button onclick="showPage('log')">𝗔𝗰𝘁𝗶𝘃𝗶𝘁𝘆</button>
+    <button onclick="showPage('dev')">𝗦𝗰𝗿𝗶𝗽𝘁</button>
+  </div>
+
+  <div id="pesan" class="page">
+    <label>ᴛᴏᴋᴇɴ ʙᴏᴛ</label>
+    <input type="text" id="token" placeholder="ᴛᴏᴋᴇɴ ʙᴏᴛ ʟᴜ">
+
+    <label>ɪᴅ ᴛᴇʟᴇ</label>
+    <input type="text" id="chatid" placeholder="ɪᴅ ᴛᴇʟᴇ ʟᴜ">
+
+    <label>ɪsɪ ᴘᴇsᴀɴ</label>
+    <textarea id="pesanText" rows="4" placeholder="𝙿𝚎𝚜𝚊𝚗 𝙻𝚞 𝙰𝚙𝚊 𝙼𝚎𝚔"></textarea>
+
+    <label>ᴊᴜᴍʟᴀʜ ᴘᴇsᴀɴ</label>
+    <input type="number" id="jumlah" placeholder="ᴇxᴀᴍᴘʟᴇ: 1" min="1" max="9999999999999">
+
+    <button class="send" onclick="kirimPesan()">Spam</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div id="log" class="page" style="display:none;">
+    <h2>𝗟𝗼𝗴 𝗔𝗰𝘁𝗶𝘃𝗶𝘁𝘆</h2>
+    <div class="log-container" id="logContainer">
+      <div class="log-entry">𝙻𝚘𝚐 𝙲𝚑𝚊𝚝 𝙱𝚎𝚛𝚑𝚊𝚜𝚒𝚕 / 𝚃𝚒𝚍𝚊𝚔 𝙼𝚞𝚗𝚌𝚞𝚕 𝙳𝚒 𝚂𝚒𝚗𝚒.</div>
+    </div>
+  </div>
+
+  <div id="dev" class="page" style="display:none;">
+    <h2>𝙰𝚕𝚕 𝚂𝚘𝚜𝚖𝚎𝚍 𝙳𝚘𝚗𝚣𝚃𝚣𝚢</h2>
+    <div class="log-container">
+      <p style="text-align:center; font-size: 16px;">
+        <strong>𝙱𝚞𝚢 𝚂𝚌𝚛𝚒𝚙𝚝? </strong> 𝙿𝚖 𝙳𝚘𝚗𝚣𝚃𝚣𝚢<br>
+        <strong>𝙲𝚕𝚒𝚌𝚔 𝙱𝚞𝚝𝚝𝚘𝚗</strong> 𝙳𝚒 𝙱𝚊𝚠𝚊𝚑 𝙸𝚗𝚒
+      </p>
+      <div class="dev-btns">
+        <a href="https://wa.me/62881012163184" target="_blank"><i class="fab fa-whatsapp"></i> 𝚆𝚑𝚊𝚝𝚜𝚊𝚙𝚙</a>
+        <a href="https://chat.whatsapp.com/ES81JhvvHDyHJ5uhTTWLhH" target="_blank"><i class="fab fa-whatsapp"></i> 𝚁𝚎𝚊𝚕 𝙸𝚗𝚏𝚒𝚗𝚒𝚝𝚢</a>
+        <a href="https://t.me/DonzTzy¹" target="_blank"><i class="fab fa-telegram"></i> 𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖</a>
+        <a href="https://github.com/codexashop" target="_blank"><i class="fab fa-github"></i> 𝙶𝚒𝚝𝚑𝚞𝚋</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
+
+  async function kirimPesan() {
+    const token = document.getElementById("token").value.trim();
+    const chatId = document.getElementById("chatid").value.trim();
+    const pesan = document.getElementById("pesanText").value.trim();
+    const jumlah = parseInt(document.getElementById("jumlah").value.trim());
+    const statusEl = document.getElementById("status");
+    const logContainer = document.getElementById("logContainer");
+
+    const tombolSpam = document.querySelector("button.send");
+    tombolSpam.classList.add("loading");
+
+    statusEl.textContent = "";
+
+    if (!token || !chatId || !pesan || !jumlah || jumlah <= 0) {
+      statusEl.style.color = "#ff5050";
+      statusEl.textContent = "Semua field wajib diisi!";
+      tombolSpam.classList.remove("loading");
+      return;
+    }
+
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+    let berhasil = 0;
+
+    for (let i = 1; i <= jumlah; i++) {
+      try {
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: chatId, text: pesan })
+        });
+
+        const result = await res.json();
+        if (result.ok) {
+          berhasil++;
+          statusEl.style.color = "#00ff00";
+          statusEl.textContent = `Berhasil kirim ${berhasil}/${jumlah}`;
+
+          const logEntry = document.createElement("div");
+          logEntry.className = "log-entry";
+          const waktu = new Date().toLocaleTimeString();
+          logEntry.textContent = `✓ [${waktu}] - Pesan ke-${i} sukses: "${pesan}"`;
+          logContainer.appendChild(logEntry);
+        } else {
+          statusEl.style.color = "#ff5050";
+          statusEl.textContent = `Gagal di pesan ke-${i}: ${result.description}`;
+          break;
+        }
+      } catch (err) {
+        statusEl.style.color = "#ff5050";
+        statusEl.textContent = `Error di pesan ke-${i}: ${err.message}`;
+        break;
+      }
+
+      await new Promise((r) => setTimeout(r, 500));
+    }
+
+    tombolSpam.classList.remove("loading");
+  }
+</script>
+
+</body>
+</html>
